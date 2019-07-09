@@ -4,6 +4,7 @@ from profiles_api import views
 
 router = DefaultRouter()
 router.register('images-view-set', views.ImageViewSet, base_name='images-view-set')
+router.register('profile', views.UserProfileViewSet)
 
 urlpatterns = [
     path('images/', views.ImageApiView.as_view()),
