@@ -28,13 +28,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class ProfileFeedItemSerializer(serializers.ModelSerializer):
     """Serializes profile feed items"""
+    user_email = serializers.ReadOnlyField(source='user_profile.email')
 
     class Meta:
         model = models.ProfileFeedItem
-        fields = ['id', 'user_profile', 'status_text', 'created_on']
+        fields = ['id', 'user_email', 'status_text', 'created_on']
         extra_kwargs = {
-            'created_on': {'read_only': True},
-            'user_profile': {'read_only': True}
+            'created_on': {'read_only': True}
         }
 
 
